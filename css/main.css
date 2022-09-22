@@ -1,0 +1,147 @@
+* {
+	margin: 0;
+	paddin: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--index: calc(1vw + 1vh);
+	--gutter: 30px;
+	--side-small: 26;
+	--side-big: 36;
+	--depth: 9100px;
+	--transition: 0.75s cubic-bezier(0.075, 0.5, 0, 1);
+}
+
+@font-face {
+	font-family: raleway_c;
+	src: url(../fonts/raleway-family-v3/Raleway-ExtraLight.ttf);
+	font-weight: 100;
+}
+
+body {
+	background-color: black;
+	color: white;
+	font-size: calc(var(--index) * 0.8);
+	font-family: raleway_c, sans-serif;
+	font-weight: 300;
+	line-height: 1.75;
+	height: var(--depth);
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	perspective: 1500px;
+}
+
+.gallery {
+	transform-style: preserve-3d;
+	height: 100%;
+}
+
+.frame {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: var(--transition), opacity 0.5s ease;
+	will-change: transform;
+	transform-style: preserve-3d;
+}
+
+h1, h2, h3, h4 {
+	font-weight: 100;
+	text-transform: uppercase;
+}
+
+a {
+	color: white;
+}
+
+.frame h1 {
+	text-align: center;
+	font-size: calc(var(--index) * 2);
+}
+
+.frame h2 {
+	font-size: calc(var(--index) * 1);
+}
+
+.frame h3 {
+	font-size: calc(var(--index) * 0.7);
+}
+
+.frame-media {
+	position: relative;
+	width: calc(var(--index) * var(--side-big));
+	height: calc(var(--index) * var(--side-small));
+	background-position: center;
+	background-size: cover;
+}
+
+.frame-media_left {
+	right: calc(var(--side-big) / 2 * var(--index) + var(--gutter));
+}
+
+.frame-media_right {
+	left: calc(var(--side-big) / 2 * var(--index) + var(--gutter));
+}
+
+.frame_bg {
+	background-color: rgba(0, 0, 0, 0.85);
+}
+
+.frame-text_right {
+	position: relative;
+	left: 17vw;
+}
+
+.frame-text_left {
+	position: relative;
+	right: 17vw;
+}
+
+.frame p {
+	max-width: 30vw;
+	margin-top: 5vh;
+}
+
+.reserve-button {
+	margin: 0 auto;
+	padding: 10px;
+	float: right;
+	display: inline-block;
+	background-color: black;
+	border: 3px solid white;
+}
+
+.sound-button {
+	position: fixed;
+	bottom: 5vh;
+	right: 3vw;
+	width: 60px;
+	transition: 0.25s ease;
+}
+
+.sound-button.paused {
+	opacity: 0.30;
+}
+
+.submit {
+	font-family: raleway_c, sans-serif;
+	font-weight: 100;
+	font-size: 20px;
+	cursor: pointer;
+	border: 1px solid white;
+	background: black;
+	color: white;
+	border-radius: 0px;
+	width: 120px;
+	height: 50px;
+	display: block;
+	margin: 0 auto;
+}
